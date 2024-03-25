@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+build/*
+.vscode/*
+.cache/*
+compile_commands.json
+cmake/CPM/*
+libs/third_party/CPM/*
+
+vgcore.*
