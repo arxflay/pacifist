@@ -6,7 +6,12 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS True)
 set(SOURCE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(SOURCES "")
 list(APPEND SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/PacifistGameWindow.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/PacifistGame.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/FontManager.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/ImageManager.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/Config.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/CheckBox.cpp
 )
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include("${CMAKE_CURRENT_SOURCE_DIR}/libs/ProjectLibs.cmake")
@@ -44,10 +49,15 @@ set(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
 set_target_properties(pacifist PROPERTIES DEBUG_POSTFIX "d")
 if (NOT PACIFIST_DISABLE_INSTALL)
     install(TARGETS pacifist)
-    if (UNIX) #set default prefix as usr
+    if (UNIX)
         set(CMAKE_INSTALL_PREFIX "/usr")
+        install(DIRECTORY resources DESTINATION share/${CMAKE_PROJECT_NAME})
+    else()
+        install(DIRECTORY resources DESTINATION ${CMAKE_INSTALL_PREFIX})
     endif()
 endif()
+
+target_compile_definitions(pacifist PRIVATE -DPAC_USE_RELATIVE_PATH)
 
 #this must be a last entry in this file
 include(CPack)
