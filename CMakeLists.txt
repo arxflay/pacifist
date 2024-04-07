@@ -12,6 +12,7 @@ list(APPEND SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ImageManager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Config.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/CheckBox.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/Player.cpp
 )
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include("${CMAKE_CURRENT_SOURCE_DIR}/libs/ProjectLibs.cmake")

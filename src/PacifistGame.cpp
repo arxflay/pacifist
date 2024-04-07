@@ -88,6 +88,36 @@ void PacifistGame::InitResources()
     ImageManager::GetImageManager().LoadFromFile("check_clicked_btn_checked", GetResourcePathStr("images/ui/check_clicked_btn_checked.jpg"));
     ImageManager::GetImageManager().LoadFromFile("togglable_btn", GetResourcePathStr("images/ui/togglable_btn.jpg"));
     ImageManager::GetImageManager().LoadFromFile("togglable_hover_btn", GetResourcePathStr("images/ui/togglable_hover_btn.jpg"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_0", GetResourcePathStr("images/character/character_move_0.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_1", GetResourcePathStr("images/character/character_move_1.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_2", GetResourcePathStr("images/character/character_move_2.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_3", GetResourcePathStr("images/character/character_move_3.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_4", GetResourcePathStr("images/character/character_move_4.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_5", GetResourcePathStr("images/character/character_move_5.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_6", GetResourcePathStr("images/character/character_move_6.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_0_left", GetResourcePathStr("images/character/character_move_0_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_1_left", GetResourcePathStr("images/character/character_move_1_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_2_left", GetResourcePathStr("images/character/character_move_2_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_3_left", GetResourcePathStr("images/character/character_move_3_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_4_left", GetResourcePathStr("images/character/character_move_4_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_5_left", GetResourcePathStr("images/character/character_move_5_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_move_6_left", GetResourcePathStr("images/character/character_move_6_left.png"));
+
+    ImageManager::GetImageManager().LoadFromFile("character_idle_0", GetResourcePathStr("images/character/character_idle_0.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_1", GetResourcePathStr("images/character/character_idle_1.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_2", GetResourcePathStr("images/character/character_idle_2.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_3", GetResourcePathStr("images/character/character_idle_3.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_4", GetResourcePathStr("images/character/character_idle_4.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_5", GetResourcePathStr("images/character/character_idle_5.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_6", GetResourcePathStr("images/character/character_idle_6.png"));
+
+    ImageManager::GetImageManager().LoadFromFile("character_idle_0_left", GetResourcePathStr("images/character/character_idle_0_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_1_left", GetResourcePathStr("images/character/character_idle_1_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_2_left", GetResourcePathStr("images/character/character_idle_2_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_3_left", GetResourcePathStr("images/character/character_idle_3_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_4_left", GetResourcePathStr("images/character/character_idle_4_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_5_left", GetResourcePathStr("images/character/character_idle_5_left.png"));
+    ImageManager::GetImageManager().LoadFromFile("character_idle_6_left", GetResourcePathStr("images/character/character_idle_6_left.png"));
 }
 
 bool IsValidAspectRatio(Config *cfg)
@@ -111,6 +141,11 @@ void PacifistGame::LoadConfig()
             arx::SizeI res = resMode.GetSize();
             cfg->resX = res.width;
             cfg->resY = res.height;
+        }
+        else
+        {
+            cfg->resX = 1024;
+            cfg->resY = 576;
         }
     }
 }
