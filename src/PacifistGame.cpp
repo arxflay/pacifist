@@ -179,10 +179,15 @@ void PacifistGame::CreateDefaultConfig()
 
 void PacifistGame::OnRun() 
 {
-    PacifisitGameWindow *window = new PacifisitGameWindow(arx::SizeF(static_cast<float>(GetGlobalConfig()->resX), static_cast<float>(GetGlobalConfig()->resY)));
+    arx::SizeF res = arx::SizeF(static_cast<float>(GetGlobalConfig()->resX), static_cast<float>(GetGlobalConfig()->resY));
+    PacifisitGameWindow *window = new PacifisitGameWindow(res);
     window->SetFullscreen(GetGlobalConfig()->fullscreen);
     window->EnableVSync(true);
     window->Center();
+    window->GetEventManager().Bind<arx::ShowEvent>([window, res](arx::ShowEvent &e){
+        window->SetSize(res);
+        e.Skip();
+    });
     window->Show();
 }
 

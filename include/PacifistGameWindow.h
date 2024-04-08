@@ -13,7 +13,7 @@ class Player;
 class PacifisitGameWindow final : public arx::ArxWindow
 {
 public:
-    PacifisitGameWindow(const arx::SizeF &size = arx::SizeF::DEFAULT_SIZE, const arx::Position &position = arx::constants::DEFAULT_POSITION, int attributes = arx::ArxWindow::DISPLAY_ON_TOP);
+    PacifisitGameWindow(const arx::SizeF &size = arx::SizeF::DEFAULT_SIZE, const arx::Position &position = arx::constants::DEFAULT_POSITION, int attributes = 0);
 private:
     void CreateMainMenu();
     void SetUpLevel();
@@ -37,7 +37,7 @@ private:
     arx::SoundPlayer m_btnClickPlayer;
     arx::SoundPlayer m_musicPlayer;
 
-    long m_resPos;
+    long long m_resPos;
     arx::ImageControl *m_mainMenu;
     arx::UIControl *m_gameScene;
     arx::UIControl *m_endScreen;

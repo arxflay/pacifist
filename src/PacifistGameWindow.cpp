@@ -151,7 +151,7 @@ void PacifisitGameWindow::StartGame()
 {
     m_mainMenu->Hide();
     m_gameScene = new arx::UIControl(this);
-    m_gameScene->SetBackgroundColor(arx::Color(255, 0.0f, 0.0f)); 
+    m_gameScene->SetBackgroundColor(arx::constants::COLOR_BLACK); 
     m_gameScene->SetPosition(arx::Position(0.0f, 0.0f));
     m_character = new Player(m_gameScene);
     SetUpLevel();
@@ -171,7 +171,7 @@ void PacifisitGameWindow::OnKeyDownInEndScreen(arx::KeyDownEvent &e)
         m_endScreen->RequestDelete();
         GetEventManager().Unbind<arx::KeyDownEvent>(&PacifisitGameWindow::OnKeyDownInEndScreen, this);
         m_mainMenu->Show();
-        m_musicPlayer.LoadSound(arx::Sound::LoadFromFile(GetResourcePathStr("sound/music_level0.wav"), arx::Sound::Format::UncompressedWAV));
+        m_musicPlayer.LoadSound(arx::Sound::LoadFromFile(GetResourcePathStr("sound/music_menu.wav"), arx::Sound::Format::UncompressedWAV));
         m_musicPlayer.Play(arx::SoundPlayer::PlayMode::Async, true);
         SetCameraPos(arx::Position(0.0f, 0.0f));
     }
@@ -179,6 +179,7 @@ void PacifisitGameWindow::OnKeyDownInEndScreen(arx::KeyDownEvent &e)
 
 void PacifisitGameWindow::ShowEndScreen()
 {
+    m_musicPlayer.Stop();
     m_endScreen = new arx::UIControl(this);
     m_endScreen->SetBackgroundColor(arx::constants::COLOR_BLACK);
     m_endScreen->SetSize(arx::SizeF(640, 360));
@@ -276,7 +277,6 @@ void PacifisitGameWindow::OnKeyHoldInGame(arx::KeyHoldEvent &e)
     if (itLeft != e.GetHeldKeys().end() && itRight == e.GetHeldKeys().end())
         m_character->MoveToLeft();
 }
-
 
 void PacifisitGameWindow::OnKeyDownInGame(arx::KeyDownEvent &e)
 {
