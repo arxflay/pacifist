@@ -62,6 +62,7 @@ endif()
 if (PAC_USE_RELATIVE_PATH)
     target_compile_definitions(pacifist PRIVATE -DPAC_USE_RELATIVE_PATH)
 endif()
+include(InstallRequiredSystemLibraries)
 
 #this must be a last entry in this file
 include(CPack)
