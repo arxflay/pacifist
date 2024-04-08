@@ -6,6 +6,7 @@ CPMFindPackage(NAME arxengine
     VERSION 0.1
     GIT_TAG v0.1
     OPTIONS 
-        "BUILD_SHARED_LIBS OFF"    
+        "BUILD_SHARED_LIBS OFF"
+        "ARX_DISABLE_INSTALL ON"
 )
 
