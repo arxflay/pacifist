@@ -1,3 +1,6 @@
+/*
+ * @author Alexej Fedorenko
+ */
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "arxengine/ui/ImageControl.h"

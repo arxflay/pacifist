@@ -1,3 +1,6 @@
+/*
+ * @author Alexej Fedorenko
+ */
 #ifndef PACIFISTGAME_H
 #define PACIFISTGAME_H
 #include <arxengine/GameApp.h>

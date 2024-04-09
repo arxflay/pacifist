@@ -1,3 +1,6 @@
+/*
+ * @author Alexej Fedorenko
+ */
 #ifndef IMAGEMANAGER_H
 #define IMAGEMANAGER_H
 #include <arxengine/media/Image.h>

@@ -1,3 +1,6 @@
+/*
+ * @author Alexej Fedorenko
+ */
 #ifndef PACIFISTGAMEWINDOW_H
 #define PACIFISTGAMEWINDOW_H
 #include <arxengine/ui/ArxWindow.h>

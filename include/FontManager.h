@@ -1,3 +1,6 @@
+/*
+ * @author Alexej Fedorenko
+ */
 #ifndef FONTMANAGER_H
 #define FONTMANAGER_H
 #include <arxengine/media/Font.h>

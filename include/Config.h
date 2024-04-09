@@ -1,4 +1,8 @@
+/*
+ * @author Alexej Fedorenko
+ */
 #ifndef CONFIG_H
+#define CONFIG_H
 #include <arxengine/Json.h>
 
 struct Config : public arx::IJsonObject

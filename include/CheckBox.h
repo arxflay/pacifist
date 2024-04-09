@@ -1,3 +1,6 @@
+/*
+ * @author Alexej Fedorenko
+ */
 #ifndef CHECKBOX_H
 #define CHECKBOX_H
 #include <arxengine/ui/BitmapButton.h>
