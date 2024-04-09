@@ -177,17 +177,35 @@ void PacifistGame::CreateDefaultConfig()
     }
 }
 
+void InitWindowAfterShowHandler(arx::ShowEvent &e)
+{
+    arx::SizeF res = arx::SizeF(static_cast<float>(GetGlobalConfig()->resX), static_cast<float>(GetGlobalConfig()->resY));
+    arx::ArxWindow *win = static_cast<arx::ArxWindow*>(e.GetSender());
+    win->SetSize(res);
+    win->Center();
+}
+
+void CreateAfterShowHandler(arx::ShowEvent &e)
+{
+    arx::ArxWindow *win = static_cast<arx::ArxWindow*>(e.GetSender());
+    win->GetEventManager().Bind(InitWindowAfterShowHandler);
+    win->GetEventManager().Unbind(CreateAfterShowHandler);
+    win->Show(); //will create another show event be
+    e.Skip();
+}
+
 void PacifistGame::OnRun() 
 {
     arx::SizeF res = arx::SizeF(static_cast<float>(GetGlobalConfig()->resX), static_cast<float>(GetGlobalConfig()->resY));
     PacifisitGameWindow *window = new PacifisitGameWindow(res);
     window->SetFullscreen(GetGlobalConfig()->fullscreen);
     window->EnableVSync(true);
-    window->Center();
-    window->GetEventManager().Bind<arx::ShowEvent>([window, res](arx::ShowEvent &e){
-        window->SetSize(res);
-        e.Skip();
-    });
+    if (!GetGlobalConfig()->fullscreen)
+    {
+        window->GetEventManager().Bind<arx::ShowEvent>(CreateAfterShowHandler);
+        window->Center();
+    }
+
     window->Show();
 }
 
@@ -197,4 +215,3 @@ IMPLEMENT_GAMEAPP_WITH_LOGGER(PacifistGame, std::make_unique<arx::FileLogger>(ar
         return GetLogPath().u8string();
     }() )
 );
-
